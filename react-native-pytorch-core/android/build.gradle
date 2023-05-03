@@ -123,15 +123,15 @@ dependencies {
   // get the buildType duing configuration stage
   def buildType = "release"
 
-  if (Integer.parseInt(appRnMinorVersion) < 69) {
-      def rnAAR = fileTree("${nodeModules}/react-native/android").matching({ it.include "**/**/*.aar" }).singleFile
-      extractJNI(files(rnAAR))
-  } else {
-      // React Native 0.69
-      def rnAarMatcher = "**/react-native/**/*${buildType}.aar"
-      def rnAAR = fileTree("${nodeModules}/react-native/android").matching({ it.include rnAarMatcher }).singleFile
-      extractJNI(files(rnAAR))
-  }
+//  if (Integer.parseInt(appRnMinorVersion) < 69) {
+//      def rnAAR = fileTree("${nodeModules}/react-native/android").matching({ it.include "**/**/*.aar" }).singleFile
+//      extractJNI(files(rnAAR))
+//  } else {
+//      // React Native 0.69
+//      def rnAarMatcher = "**/react-native/**/*${buildType}.aar"
+//      def rnAAR = fileTree("${nodeModules}/react-native/android").matching({ it.include rnAarMatcher }).singleFile
+//      extractJNI(files(rnAAR))
+//  }
 
   extractForNativeBuild("org.pytorch:pytorch_android_lite:${pytorchLiteVersion}")
 
